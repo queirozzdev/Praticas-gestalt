@@ -1,50 +1,125 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <html lang="pt-BR">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TecnologiasEmergentes</title>
+    <title>Formulário de Tecnologias Emergentes - IHC</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
-       <H1>Titulo da Página</H1> 
+        <h1>Formulário de Interesse em Tecnologias Emergentes</h1>
+        <p class="subtitle">Participe da nossa pesquisa sobre o futuro da tecnologia</p>
     </header>
-    <div class="container">    
-    <form id="formTec">
-           <label for="nome">Nome:</label>
-           <input type="text" id="nome" name="nome" required>
-           <label for="email">E-mail:</label>
-           <input type="email" id="email" name="email" required>
-       </div>
+    
+    <main>
+        <div class="container">    
+            <form id="formTec" novalidate>
+                <!-- Seção de Dados Pessoais -->
+                <fieldset class="form-section">
+                    <legend>Dados Pessoais</legend>
+                    
+                    <div class="input-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required 
+                               placeholder="Digite seu nome completo"
+                               aria-describedby="nome-error">
+                        <span id="nome-error" class="error-message" role="alert"></span>
+                    </div>
 
-       <div class="Forms">
-           <label for="interesse">Área de Interesse em Tecnologia Emergente:</label>
-           <select id="interesse" name="interesse" required>
-               <option value="">Selecione uma opção</option>
-               <option value="ia">Inteligência Artificial</option>
-               <option value="block">Blockchain</option>
-               <option value="iot">Internet das Coisas (IoT)</option>
-               <option value="r360">Realidade Virtual/Aumentada</option>
-               <option value="computacao">Computação Quântica</option>
-               <option value="robotica">Robótica</option>
-               <option value="biotecnologia">Biotecnologia</option>
-               <option value="energia">Energia Renovável</option>
-               <option value="nanotec">Nanotecnologia</option>
-               <option value="cyber">Cybersecurity</option>
-           </select>
-       </div>
+                    <div class="input-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required 
+                               placeholder="seu.email@exemplo.com"
+                               aria-describedby="email-error">
+                        <span id="email-error" class="error-message" role="alert"></span>
+                    </div>
+                </fieldset>
 
-       <div>
-           <label for="comentarios">Comentários:</label>
-           <textarea id="comentarios" name="comentarios" rows="5" cols="50" placeholder="Deixe seus comentários aqui..."></textarea>
-       </div>
+                <!-- Seção de Interesse Tecnológico -->
+                <fieldset class="form-section">
+                    <legend>Área de Interesse</legend>
+                    
+                    <div class="input-group">
+                        <label for="interesse">Tecnologia Emergente de Interesse *</label>
+                        <select id="interesse" name="interesse" required 
+                                aria-describedby="interesse-error">
+                            <option value="">Selecione uma opção</option>
+                            <option value="ia">🤖 Inteligência Artificial</option>
+                            <option value="block">⛓️ Blockchain</option>
+                            <option value="iot">🌐 Internet das Coisas (IoT)</option>
+                            <option value="r360">🥽 Realidade Virtual/Aumentada</option>
+                            <option value="computacao">⚛️ Computação Quântica</option>
+                            <option value="robotica">🤖 Robótica</option>
+                            <option value="biotecnologia">🧬 Biotecnologia</option>
+                            <option value="energia">⚡ Energia Renovável</option>
+                            <option value="nanotec">🔬 Nanotecnologia</option>
+                            <option value="cyber">🔒 Cybersecurity</option>
+                        </select>
+                        <span id="interesse-error" class="error-message" role="alert"></span>
+                    </div>
 
-       <div>
-           <button type="submit" id="btnEnviar">Enviar</button>
-       </div>
-   </form>
-</body>
-</html>
+                    <div class="input-group">
+                        <label for="nivel-conhecimento">Nível de Conhecimento</label>
+                        <select id="nivel-conhecimento" name="nivel-conhecimento">
+                            <option value="">Selecione seu nível</option>
+                            <option value="iniciante">Iniciante</option>
+                            <option value="intermediario">Intermediário</option>
+                            <option value="avancado">Avançado</option>
+                            <option value="especialista">Especialista</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Seção de Comentários -->
+                <fieldset class="form-section">
+                    <legend>Comentários e Sugestões</legend>
+                    
+                    <div class="input-group">
+                        <label for="comentarios">Comentários</label>
+                        <textarea id="comentarios" name="comentarios" rows="5" 
+                                  placeholder="Compartilhe suas opiniões sobre tecnologias emergentes, experiências ou sugestões..."
+                                  aria-describedby="comentarios-help"></textarea>
+                        <small id="comentarios-help" class="help-text">
+                            Máximo de 500 caracteres. <span id="char-count">0/500</span>
+                        </small>
+                    </div>
+                </fieldset>
+
+                <!-- Seção de Notificações -->
+                <fieldset class="form-section">
+                    <legend>Preferências de Contato</legend>
+                    
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkmark"></span>
+                            Desejo receber newsletter sobre tecnologias emergentes
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Botões de Ação -->
+                <div class="button-group">
+                    <button type="button" id="btnLimpar" class="btn-secondary">Limpar Formulário</button>
+                    <button type="submit" id="btnEnviar" class="btn-primary">
+                        <span class="btn-text">Enviar Formulário</span>
+                        <span class="btn-loading" style="display: none;">Enviando...</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal de Confirmação -->
+    <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <h2 id="modal-title">Formulário Enviado com Sucesso!</h2>
+            <p id="modal-message">Obrigado por participar da nossa pesquisa. Seus dados foram registrados com sucesso.</p>
+            <button id="modal-close" class="btn-primary">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
