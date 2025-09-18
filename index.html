@@ -30,7 +30,7 @@
                     <div class="input-group">
                         <label for="email">E-mail *</label>
                         <input type="email" id="email" name="email" required 
-                               placeholder="seu.email@exemplo.com"
+                               placeholder="seu.email@dominio.com"
                                aria-describedby="email-error">
                         <span id="email-error" class="error-message" role="alert"></span>
                     </div>
@@ -115,8 +115,18 @@
     <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-content">
             <h2 id="modal-title">Formulário Enviado com Sucesso!</h2>
+
             <p id="modal-message">Obrigado por participar da nossa pesquisa. Seus dados foram registrados com sucesso.</p>
-            <button id="modal-close" class="btn-primary">Fechar</button>
+            <div class="modal-actions">
+                <button id="modal-close" class="btn-secondary" aria-label="Fechar confirmação">Fechar</button>
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScO26JbOVoWihWHbjfX7SGJNqcTldhTSyP-a1xQeByPg0qO3A/viewform?usp=header"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary"
+                    aria-label="Abrir formulário complementar em uma nova aba"
+                >Responder pesquisa completa</a>
+            </div>
         </div>
     </div>
 
