@@ -153,6 +153,8 @@ class FormValidator {
 class FormManager {
     constructor() {
         this.validator = new FormValidator();
+        // Limpar somente após fechar o modal de sucesso
+        this.shouldClearOnClose = false;
         this.setupEventListeners();
     }
 
@@ -219,6 +221,8 @@ class FormManager {
     showSuccessModal() {
         modal.classList.add('show');
         modal.setAttribute('aria-hidden', 'false');
+        // Marca para limpar o formulário quando o modal for fechado
+        this.shouldClearOnClose = true;
         
         // Foco no modal para acessibilidade
         modalClose.focus();
@@ -227,6 +231,16 @@ class FormManager {
     closeModal() {
         modal.classList.remove('show');
         modal.setAttribute('aria-hidden', 'true');
+        // Se veio de um envio bem-sucedido, limpar os dados agora
+        if (this.shouldClearOnClose) {
+            form.reset();
+            this.clearAllErrors();
+            this.resetCharacterCounter();
+            this.shouldClearOnClose = false;
+            // Opcional: devolver foco ao primeiro campo para continuidade
+            const firstInput = document.getElementById('nome') || form.querySelector('input, select, textarea, button');
+            if (firstInput) firstInput.focus();
+        }
     }
 
     clearForm() {
